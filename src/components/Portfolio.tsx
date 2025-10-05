@@ -8,13 +8,13 @@ import project4 from "@/assets/project-4.jpg";
 
 export const Portfolio = () => {
   const projects = [
-    { image: kitchen2, title: "Современная кухня", location: "Дубай 2024" },
-    { image: kitchen3, title: "Кухня-гостиная", location: "Дубай 2024" },
-    { image: kitchen1, title: "Минималистичная кухня", location: "Дубай 2024" },
-    { image: project1, title: "Современная кухня", location: "Астана 2024" },
-    { image: project2, title: "Магазин", location: "Астана 2025" },
-    { image: project3, title: "Гардеробная", location: "Астана 2025" },
-    { image: project4, title: "Кухня премиум", location: "Астана 2024" },
+    { image: kitchen2, title: "Modern Kitchen", location: "Dubai 2024" },
+    { image: kitchen3, title: "Kitchen-Living Room", location: "Dubai 2024" },
+    { image: kitchen1, title: "Minimalist Kitchen", location: "Dubai 2024" },
+    { image: project1, title: "Contemporary Kitchen", location: "Astana 2024" },
+    { image: project2, title: "Store Interior", location: "Astana 2025" },
+    { image: project3, title: "Walk-in Closet", location: "Astana 2025" },
+    { image: project4, title: "Premium Kitchen", location: "Astana 2024" },
   ];
 
   return (
@@ -22,10 +22,10 @@ export const Portfolio = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Наши проекты
+            Our Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Примеры реализованных проектов в Дубае и Астане
+            Examples of completed projects in Dubai and Astana
           </p>
         </div>
 

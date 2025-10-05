@@ -5,31 +5,31 @@ export const Services = () => {
   const services = [
     {
       icon: Home,
-      title: "Жилые интерьеры",
-      description: "Кухни, шкафы, встроенная мебель для квартир и домов",
+      title: "Residential Interiors",
+      description: "Kitchens, wardrobes, and built-in furniture for apartments and houses",
     },
     {
       icon: Building2,
-      title: "Коммерческие проекты",
-      description: "Офисы, бутики, рестораны, шоурумы 100-200 м²",
+      title: "Commercial Projects",
+      description: "Offices, boutiques, restaurants, and showrooms from 100–200 m²",
     },
     {
       icon: Users,
-      title: "Партнёрская программа",
-      description: "Выгодные условия для агентов, застройщиков и дизайнеров",
+      title: "Partnership Program",
+      description: "Attractive conditions for agents, developers, and designers",
     },
     {
       icon: Award,
-      title: "Премиум качество",
-      description: "Материалы и фурнитура от мировых брендов",
+      title: "Premium Quality",
+      description: "Materials and fittings from world-renowned brands",
     },
   ];
 
   const benefits = [
-    "Доступнее местных производителей благодаря производству в Казахстане",
-    "Работаем с вашими дизайн-проектами или создаём собственные",
-    "Прямое сотрудничество без посредников",
-    "Возможность пробного проекта для новых партнёров",
+    "More affordable than local manufacturers thanks to production in Kazakhstan",
+    "We work with your design projects or create our own concepts",
+    "Direct collaboration without intermediaries",
+    "Opportunity for a trial project for new partners",
   ];
 
   return (
@@ -37,10 +37,10 @@ export const Services = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Наши услуги
+            Our Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Мы предлагаем комплексные решения для любых проектов
+            We provide comprehensive solutions for any type of project
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export const Services = () => {
 
         <div className="bg-card rounded-2xl p-8 md:p-12 shadow-lg">
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-            Почему выгодно работать с нами
+            Why It’s Profitable to Work With Us
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
             {benefits.map((benefit, index) => (

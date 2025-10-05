@@ -3,10 +3,10 @@ import aboutImage from "@/assets/about-1.jpg";
 
 export const About = () => {
   const features = [
-    "Собственное производство в Казахстане",
-    "Полный цикл: дизайн → производство → установка в Дубае",
-    "Опыт работы с жилыми и коммерческими проектами",
-    "Гарантированное качество и доставка в срок",
+    "Own production in Kazakhstan",
+    "Full cycle: design → manufacturing → installation in Dubai",
+    "Experience with residential and commercial projects",
+    "Guaranteed quality and on-time delivery",
   ];
 
   return (
@@ -15,12 +15,12 @@ export const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              О компании
+              About the Company
             </h2>
             <p className="text-lg text-muted-foreground">
-              YES! FURNITURE специализируется на производстве мебели премиум-класса 
-              для требовательных клиентов в Дубае. Наше собственное производство 
-              позволяет контролировать качество на каждом этапе.
+              YES! FURNITURE specializes in the production of premium-class furniture 
+              for discerning clients in Dubai. Our own manufacturing facilities 
+              allow us to maintain quality control at every stage.
             </p>
             <ul className="space-y-4">
               {features.map((feature, index) => (

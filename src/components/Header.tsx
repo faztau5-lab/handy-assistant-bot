@@ -23,11 +23,11 @@ export const Header = () => {
   };
 
   const navItems = [
-    { id: "home", label: "Главная" },
-    { id: "about", label: "О нас" },
-    { id: "services", label: "Услуги" },
-    { id: "portfolio", label: "Портфолио" },
-    { id: "contact", label: "Контакты" },
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "services", label: "Services" },
+    { id: "portfolio", label: "Portfolio" },
+    { id: "contact", label: "Contact" },
   ];
 
   return (
@@ -54,7 +54,7 @@ export const Header = () => {
               </button>
             ))}
             <Button onClick={() => scrollToSection("contact")}>
-              Связаться
+              Contact Us
             </Button>
           </nav>
 
@@ -80,7 +80,7 @@ export const Header = () => {
               </button>
             ))}
             <Button onClick={() => scrollToSection("contact")} className="w-full">
-              Связаться
+              Contact Us
             </Button>
           </nav>
         )}

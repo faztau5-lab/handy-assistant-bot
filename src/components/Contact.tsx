@@ -3,32 +3,58 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 export const Contact = () => {
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast({
-      title: "Сообщение отправлено",
-      description: "Мы свяжемся с вами в ближайшее время!",
-    });
+
+    emailjs
+      .sendForm(
+        "service_5q0gfuo", // ✅ твой Service ID
+        "template_r7kzk3v", // ✅ твой Template ID
+        e.currentTarget, // сама форма
+        "Rx6oJaBp4FypjVzQS" // ✅ твой Public Key
+      )
+      .then(
+        () => {
+          toast({
+            title: "Message sent successfully!",
+            description: "We’ll get back to you soon.",
+          });
+          e.currentTarget.reset();
+        },
+        (error) => {
+          console.error("EmailJS Error:", error);
+          toast({
+            title: "Error sending message",
+            description: "Please try again later.",
+          });
+        }
+      );
   };
 
   const contactInfo = [
     {
       icon: Phone,
-      title: "Телефон",
-      content: "+971 XX XXX XXXX",
+      title: "Phone",
+      content: "+971 58 580 8819",
+    },
+    {
+      icon: Phone,
+      title: "Phone",
+      content: "+7 707 224 4884",
     },
     {
       icon: Mail,
       title: "Email",
-      content: "info@yesfurniture.ae",
+      content: "yesafurniture@gmail.com",
     },
     {
       icon: MapPin,
-      title: "Адрес",
+      title: "Address",
       content: "Dubai, UAE",
     },
   ];
@@ -38,10 +64,10 @@ export const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Свяжитесь с нами
+            Contact Us
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Готовы обсудить ваш проект? Мы всегда на связи
+            Ready to discuss your project? We’re always here to help.
           </p>
         </div>
 
@@ -49,7 +75,7 @@ export const Contact = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-foreground">
-                Контактная информация
+                Contact Information
               </h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
@@ -58,7 +84,9 @@ export const Contact = () => {
                       <info.icon className="text-primary" size={24} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1">{info.title}</h4>
+                      <h4 className="font-semibold text-foreground mb-1">
+                        {info.title}
+                      </h4>
                       <p className="text-muted-foreground">{info.content}</p>
                     </div>
                   </div>
@@ -67,42 +95,71 @@ export const Contact = () => {
             </div>
 
             <div className="bg-card p-6 rounded-xl shadow-lg">
-              <h4 className="font-semibold text-foreground mb-4">Рабочие часы</h4>
+              <h4 className="font-semibold text-foreground mb-4">
+                Working Hours
+              </h4>
               <div className="space-y-2 text-muted-foreground">
-                <p>Понедельник - Пятница: 9:00 - 18:00</p>
-                <p>Суббота: 10:00 - 16:00</p>
-                <p>Воскресенье: Выходной</p>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
               </div>
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-2xl shadow-lg">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6 bg-card p-8 rounded-2xl shadow-lg"
+          >
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                Имя
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
+                Name
               </label>
-              <Input id="name" placeholder="Ваше имя" required />
+              <Input id="name" name="name" placeholder="Your name" required />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Email
               </label>
-              <Input id="email" type="email" placeholder="your@email.com" required />
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="your@email.com"
+                required
+              />
             </div>
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                Телефон
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
+                Phone
               </label>
-              <Input id="phone" type="tel" placeholder="+971..." />
+              <Input id="phone" name="phone" type="tel" placeholder="+971..." />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                Сообщение
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
+                Message
               </label>
-              <Textarea id="message" placeholder="Расскажите о вашем проекте..." rows={4} required />
+              <Textarea
+                id="message"
+                name="message"
+                placeholder="Tell us about your project..."
+                rows={4}
+                required
+              />
             </div>
             <Button type="submit" className="w-full" size="lg">
-              Отправить сообщение
+              Send Message
             </Button>
           </form>
         </div>
